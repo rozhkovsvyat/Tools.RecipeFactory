@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>Tools</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>$(AssemblyVersion)</FileVersion>
+    <Version>$(AssemblyVersion)</Version>
+    <Authors>RozhkovSvyat</Authors>
+    <Product>$(Authors).Tools</Product>
+    <Description>$(Product).RecipeFactory</Description>
+    <PackageId>$(Description)</PackageId>
+    <Title>$(PackageId)</Title>
+    <PackageTags>rozhkovsvyat;tools;recipefactory</PackageTags>
+    <PackageProjectUrl>https://t.me/svyatseverskiy</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rozhkovsvyat/Tools.RecipeFactory</RepositoryUrl>
+    <Copyright>© Rozhkov S. V., 2023</Copyright>
+    <PackageIcon>RecipeFactory.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\RecipeFactory.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
