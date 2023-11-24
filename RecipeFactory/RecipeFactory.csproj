@@ -19,11 +19,11 @@
     <PackageProjectUrl>https://t.me/svyatseverskiy</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rozhkovsvyat/Tools.RecipeFactory</RepositoryUrl>
     <Copyright>© Rozhkov S. V., 2023</Copyright>
-    <PackageIcon>RecipeFactory.png</PackageIcon>
+    <PackageIcon>package.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\RecipeFactory.png">
+    <None Include="..\.psd\package.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
