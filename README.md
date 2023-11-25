@@ -10,6 +10,8 @@ Object abstract factory
 
 ---
 
-Creates specified type objects using child type recipes
+### INFO
 
-The recipe is a constructor delegate of a child type _(optional: which takes a set of arguments)_
+* Creates specified type objects using child type recipes
+
+* The recipe is a constructor delegate of a child type _(optional: which takes a set of arguments)_
