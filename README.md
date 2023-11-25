@@ -9,3 +9,5 @@ Object abstract factory. Creates specified type objects using child type recipes
 The recipe is a constructor delegate of a child type (optional: which takes a set of arguments)
 
 > :eye_speech_bubble: https://www.nuget.org/packages/RozhkovSvyat.Tools.RecipeFactory/
+
+---
