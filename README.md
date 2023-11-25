@@ -4,7 +4,7 @@
 
 #v1.0.1 #net7.0.10
 
-Object abstract factory
+**Object abstract factory**
 
 > :eye_speech_bubble: https://www.nuget.org/packages/RozhkovSvyat.Tools.RecipeFactory/
 
