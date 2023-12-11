@@ -9,6 +9,14 @@ namespace Tools;
 internal static class Reflection
 {
 	/// <summary>
+	/// Returns all base type descendants within its assembly.
+	/// </summary>
+	/// <typeparam name="T">Base type.</typeparam>
+	/// <returns>Array of type descendants.</returns>
+	internal static Type[] GetTypeDescendants<T>() 
+		=> GetTypeDescendants<T>(typeof(T).Assembly);
+
+	/// <summary>
 	/// Returns all base type descendants within the specified assembly.
 	/// </summary>
 	/// <typeparam name="T">Base type.</typeparam>
@@ -23,7 +31,11 @@ internal static class Reflection
 	/// Calls a static constructor for all base type descendants within its assembly.    
 	/// </summary>
 	/// <typeparam name="T">Base type.</typeparam>
-	internal static void Activate<T>() => Activate<T>(typeof(T).Assembly);
+	internal static void Activate<T>()
+	{
+		foreach (var type in GetTypeDescendants<T>())
+			RuntimeHelpers.RunClassConstructor(type.TypeHandle);
+	}
 
 	/// <summary>
 	/// Calls a static constructor for all base type descendants within the specified assembly.
@@ -56,6 +68,5 @@ internal static class Reflection
 
 		return fieldInfo is null ? default : fieldInfo.GetValue(null) 
 			is { } fieldValue ? (T)fieldValue : default;
-
 	}
 }

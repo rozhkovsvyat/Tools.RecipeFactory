@@ -41,8 +41,33 @@ public abstract class RecipeBook<TObj, TRecipe, TDefRecipe> where TObj : class
 	/// Requests an object's recipes by calling static constructors on child types within its assembly.
 	/// To add a recipe, use the AddRecipe method in the child type's static constructor.
 	/// </summary>
-	public void RequestBaseRecipes()
-        => Reflection.Activate<TObj>();
+	public void RequestBaseRecipes() => Reflection.Activate<TObj>();
+
+	/// <summary>
+	/// Requests an object's recipes by retrieving a static property with the specified name from child types in its assembly.
+	/// To add a recipe, create static property in the child type's class.
+	/// </summary>
+	/// <typeparam name="T">Base type of descendants.</typeparam>
+	/// <param name="propertyName">Property name.</param>
+	public void RequestBasePropRecipes<T>(string propertyName)
+	{
+		foreach (var type in Reflection.GetTypeDescendants<T>())
+			if (type.GetStaticPropertyValue<TRecipe>(propertyName) 
+			    is { } recipe) AddRecipe(recipe, type.Name);
+	}
+
+	/// <summary>
+	/// Requests an object's recipes by retrieving a static property with the specified name from child types within the call assembly.
+	/// To add a recipe, create static property in the child type's class.
+	/// </summary>
+	/// <typeparam name="T">Base type of descendants.</typeparam>
+	/// <param name="propertyName">Property name.</param>
+	public void RequestLocalPropRecipes<T>(string propertyName)
+	{
+		foreach (var type in Reflection.GetTypeDescendants<T>(Assembly.GetCallingAssembly()))
+			if (type.GetStaticPropertyValue<TRecipe>(propertyName)
+			    is { } recipe) AddRecipe(recipe, type.Name);
+	}
 
 	/// <summary>
 	/// Requests an object's recipes by calling static constructors on child types within the call assembly.
