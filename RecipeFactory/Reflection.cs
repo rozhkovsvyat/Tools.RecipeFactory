@@ -43,7 +43,7 @@ internal static class Reflection
 	/// <param name="t">Current type.</param>
 	/// <param name="propertyName">Property name.</param>
 	/// <returns>Property value.</returns>
-	public static T? GetPropertyValue<T>(this Type t, string propertyName)
+	public static T? GetStaticPropertyValue<T>(this Type t, string propertyName)
 	{
 		const BindingFlags flags = BindingFlags.Static | BindingFlags.Public;
 
